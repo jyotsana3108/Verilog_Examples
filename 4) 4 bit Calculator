@@ -113,7 +113,7 @@ module division(input [3:0]divis, input [3:0]divid, output [3:0]Q,output [3:0]R)
    3mul M3(X3[2:0],P2[2:0],B3,P3[3:1]);                                                        
                                                     
    P3[0]=A[0];
-   Add_sub_rca_4 S4(P3,B,Z,0,B4,V4,X4);
+   Add_sub_rca_4 S4(P3,B,Z,O,B4,V4,X4);
    not N4(Q[0],B4);
    4mul M4(X4,P3,B4,R);
                                                        
