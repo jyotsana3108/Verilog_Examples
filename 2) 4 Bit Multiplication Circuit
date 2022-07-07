@@ -1,0 +1,50 @@
+#4 Bit Multiplication Circuit #
+
+module 4bitadd(
+ output C_out,
+ output[3:0]Sum,
+ input[3:0]A,B,
+);
+assign{C_out,Sum}=A+B
+endmodule
+
+module 4bitmultiplier(
+ output[7:0]P,
+ input[3:0]A,B,
+);
+ wire [3:0]X;
+ wire [3:0]Y;
+ wire [3:0]S;
+ wire [3:0]Q;
+ wire [3:0]R;
+ wire [3:0]S1;
+ wire [3:0]S2;
+
+ and G0(P[0],A[0],B[0]);
+
+ and G1(X[0],A[0],B[1]);
+ and G2(X[1],A[0],B[2]);
+ and G3(X[2],A[0],B[3]);
+
+ and G4(Y[0],A[1],B[0]);
+ and G5(Y[1],A[1],B[1]);
+ and G6(Y[2],A[1],B[2]);
+ and G7(Y[3],A[1],B[3]);
+
+ 4bitadd M1(P[1],S,X,Y);
+
+ and G8(Q[0],A[2],B[0]);
+ and G9(Q[1],A[2],B[1]);
+ and G10(Q[2],A[2],B[2]);
+ and G11(Q[3],A[2],B[3]);
+
+ 4bitadd M2(P[2],S1,Q,S);
+
+ and G12(R[0],A[3],B[0]);
+ and G13(R[1],A[3],B[1]);
+ and G14(R[2],A[3],B[2]);
+ and G15(R[3],A[3],B[3]);
+
+ 4bitadd M3(P[3],P[4:7],S1,R);
+
+endmodule
