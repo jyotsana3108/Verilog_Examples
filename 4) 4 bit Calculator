@@ -1,1 +1,30 @@
-#4 Bit Binary Calculator #
+//4 Bit Binary Calculator //
+
+
+module Add_half(input a,b,output c_out,sum);
+ xor G1(sum,a,b);
+ and G2(c_out,a,b);
+endmodule
+
+module Add_full(input a,b,c_in,output c_out,sum);
+  wire w1,w2,w3;
+  Add_half M1(a,b,w1,w2);
+  Add_half M2(w2,c_in,w3,sum);
+  or(c_out,w1,w3);
+endmodule
+
+module 3mul(input [2:0]a,input [2:0]b,input select,output [2:0]c);
+   if (!select)
+      c=a;
+   else
+      c=b;
+   end 
+endmodule
+
+module 4mul(input [3:0]a,input [3:0]b,input select,output [3:0]c);
+   if (!select)
+      c=a;
+   else
+      c=b;
+   end 
+endmodule
