@@ -9,21 +9,24 @@ endmodule
 
 module Add_full(input a,b,c_in,output c_out,sum);
   wire w1,w2,w3;
-  Add_half M1(a,b,w1,w2);
-  Add_half M2(w2,c_in,w3,sum);
+  Add_half 
+          M1(a,b,w1,w2);
+          M2(w2,c_in,w3,sum);
   or(c_out,w1,w3);
 endmodule
 
 module Add_sub_rca_4(input[3:0]a,b,input c_in,M,output c_out,V,output [3:0]sum);
   wire c_in1,c_in2,c_in3;
   wire [3:0]X;//create [3:0]X
-  xor G0(X[0],M,b[0]);
-  xor G1(X[1],M,b[1]);
-  xor G2(X[2],M,b[2]);
-  xor G3(X[3],M,b[3]);
-  Add_full M0(a[0],X[0],c_in,c_in1,sum[0]);
-  Add_full M1(a[1],X[1],c_in1,c_in2,sum[1]);
-  Add_full M2(a[2],X[2],c_in2,c_in3,sum[2]);
-  Add_full M3(a[3],X[3],c_in3,c_out,sum[3]);
+  xor 
+     G0(X[0],M,b[0]);
+     G1(X[1],M,b[1]);
+     G2(X[2],M,b[2]);
+     G3(X[3],M,b[3]);
+  Add_full 
+          M0(a[0],X[0],c_in,c_in1,sum[0]);
+          M1(a[1],X[1],c_in1,c_in2,sum[1]);
+          M2(a[2],X[2],c_in2,c_in3,sum[2]);
+          M3(a[3],X[3],c_in3,c_out,sum[3]);
   xor G4(V,c_in3,c_out);
 endmodule 
