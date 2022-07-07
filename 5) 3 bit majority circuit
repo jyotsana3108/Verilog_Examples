@@ -1,0 +1,15 @@
+# 3 bit majority function #
+
+## Gate level description 
+
+module majority(Y,A,B,C);
+  output Y;
+  input A,B,C;
+  wire P,Q,R;
+  and
+     G1(P,A,B);
+     G2(Q,B,C);
+     G3(R,A,C);
+  or
+    G4(Y,P,Q,R);
+endmodule
