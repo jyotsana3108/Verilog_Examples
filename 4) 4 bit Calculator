@@ -57,7 +57,9 @@ module 4bitmultiplier(
  wire [3:0]S1;
  wire [3:0]S2;
  wire V1,V2,V3;
- //assign Z=0;
+ wire Z;
+ assign Z=0;
+ 
  
  and 
     G0(P[0],A[0],B[0]); 
@@ -90,7 +92,8 @@ module 4bitmultiplier(
 endmodule
 
 module division(input [3:0]divis, input [3:0]divid, output [3:0]Q,output [3:0]R);
-   // assign Z=0;
+   wire Z;
+   assign Z=0;
    wire [3:0]X1,X2,X3,X4,P1,P2,P3;
    wire B1,B2,B3,B4;
    wire V1,V2,V3,V4;
