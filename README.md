@@ -11,6 +11,7 @@ Verilog HDL design codes for the following arithmetic circuits:
      It can perform addition,subtraction,multiplication and division operations between two 4 bit binary numbers.
      
 Additional:
+
 5) 3 bit majority function(Gate level description)
      It can identify if the number of 1's in the given 3 bit binary number are more or not.
 6) 4 bit comparator(Data flow modeling)
