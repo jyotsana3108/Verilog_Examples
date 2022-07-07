@@ -1,4 +1,4 @@
-#4 Bit Division Circuit #
+//4 Bit Division Circuit 
 
 module 3mul(input [2:0]a,input [2:0]b,input select,output [2:0]c);
    if (!select)
@@ -27,30 +27,30 @@ module division(input [3:0]divis, input [3:0]divid, output [3:0]Q
    wire B1,B2,B3,B4;
    4sub S1(A[3],B,X1,B1);
    3mul M1(X1[2:0],A[3],B1,P1[3:1]);
-                                                    //mul M1(X1[2],Z,B1,P1[3]);
+                                                    /*mul M1(X1[2],Z,B1,P1[3]);
                                                       mul M2(X1[1],Z,B1,P1[2]);
-                                                      mul M3(X1[0],A[3],B1,P1[1]);//
+                                                      mul M3(X1[0],A[3],B1,P1[1]);*/
    P1[0]=A[2];
    not N1(Q[3],B1);
    4sub S2(P1,B,X2,B2);
    not N2(Q[2],B2);
    3mul M2(X2[2:0],P1[2:0],B2,P2[3:1]);
-                                                        //mul M4(X2[2],P1[2],B2,P2[3]);
+                                                        /*mul M4(X2[2],P1[2],B2,P2[3]);
                                                           mul M5(X2[1],P1[1],B2,P2[2]);
-                                                          mul M6(X2[0],P1[0],B2,P2[1]);//
+                                                          mul M6(X2[0],P1[0],B2,P2[1]);*/
    P2[0]=A[1];
    4sub S3(P2,B,X3,B3);
    not N3(Q[1],B3);
    3mul M3(X3[2:0],P2[2:0],B3,P3[3:1]);                                                        
-                                                      //mul M7(X3[2],P2[2],B3,P3[3]);
+                                                      /*mul M7(X3[2],P2[2],B3,P3[3]);
                                                         mul M8(X3[1],P2[1],B3,P3[2]);
-                                                        mul M9(X3[0],P2[0],B3,P3[1]);//
+                                                        mul M9(X3[0],P2[0],B3,P3[1]);*/
    P3[0]=A[0];
    4sub S4(P3,B,X4,B4);
    not N4(Q[0],B4);
    4mul M4(X4,P3,B4,R);
-                                                       //mul M10(X4[3],P3[3],B4,R[3]);
+                                                       /*mul M10(X4[3],P3[3],B4,R[3]);
                                                          mul M11(X4[2],P3[2],B4,R[2]);
                                                          mul M12(X4[1],P3[1],B4,R[1]);
-                                                         mul M13(X4[0],A[0],B4,R[0]);//
+                                                         mul M13(X4[0],A[0],B4,R[0]);*/
 endmodule
