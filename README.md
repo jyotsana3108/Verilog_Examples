@@ -1,1 +1,1 @@
-# Digital_Module
+# 4 Bit Binary Calculator 
