@@ -1,4 +1,4 @@
-#4 Bit Multiplication Circuit #
+//4 Bit Multiplication Circuit 
 
 module 4bitadd(
  output C_out,
