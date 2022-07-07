@@ -1,6 +1,6 @@
-# 3 bit majority function #
+// 3 bit majority function 
 
-## Gate level description 
+// Gate level description 
 
 module majority(Y,A,B,C);
   output Y;
