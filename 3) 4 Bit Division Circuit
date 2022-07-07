@@ -21,7 +21,8 @@ module 4sub(input [3:0]a,input[3:0]b,output [3:0]c,output b_out);
 endmodule
 
 module division(input [3:0]divis, input [3:0]divid, output [3:0]Q,output [3:0]R);
-   Z=0;
+   wire Z;
+   assign Z=0;
    wire [3:0]X1,X2,X3,X4,P1,P2,P3;
    wire B1,B2,B3,B4;
    4sub S1(A[3],B,X1,B1);
