@@ -56,7 +56,9 @@ module 4bitmultiplier(
  wire [3:0]R;
  wire [3:0]S1;
  wire [3:0]S2;
-
+ wire V1,V2,V3;
+ //assign Z=0;
+ 
  and 
     G0(P[0],A[0],B[0]); 
     G1(X[0],A[0],B[1]);
@@ -67,7 +69,7 @@ module 4bitmultiplier(
     G6(Y[2],A[1],B[2]);
     G7(Y[3],A[1],B[3]);
 
- 4bitadd M1(P[1],S,X,Y);
+ Add_sub_rca_4 M1(X,Y,Z,Z,P[1],V1,S);
 
  and 
     G8(Q[0],A[2],B[0]);
@@ -75,7 +77,7 @@ module 4bitmultiplier(
     G10(Q[2],A[2],B[2]);
     G11(Q[3],A[2],B[3]);
 
- 4bitadd M2(P[2],S1,Q,S);
+ Add_sub_rca_4 M2(Q,S,Z,Z,P[2],V2,S1);
 
  and 
     G12(R[0],A[3],B[0]);
@@ -83,30 +85,31 @@ module 4bitmultiplier(
     G14(R[2],A[3],B[2]);
     G15(R[3],A[3],B[3]);
 
- 4bitadd M3(P[3],P[4:7],S1,R);
+ Add_sub_rca_4 M3(S1,R,Z,Z,P[3],V3,P[4:7]);
 
 endmodule
 
 module division(input [3:0]divis, input [3:0]divid, output [3:0]Q,output [3:0]R);
-   Z=0;
+   // assign Z=0;
    wire [3:0]X1,X2,X3,X4,P1,P2,P3;
    wire B1,B2,B3,B4;
-   4sub S1(A[3],B,X1,B1);
+   wire V1,V2,V3,V4;
+   Add_sub_rca_4 S1(A[3],B,Z,Z,B1,V1,X1);
    3mul M1(X1[2:0],A[3],B1,P1[3:1]);
                                                    
    P1[0]=A[2];
    not N1(Q[3],B1);
-   4sub S2(P1,B,X2,B2);
+   Add_sub_rca_4 S2(P1,B,Z,Z,B2,V2,X2);
    not N2(Q[2],B2);
    3mul M2(X2[2:0],P1[2:0],B2,P2[3:1]);
                                                        
    P2[0]=A[1];
-   4sub S3(P2,B,X3,B3);
+   Add_sub_rca_4 S3(P2,B,Z,Z,B3,V3,X3);
    not N3(Q[1],B3);
    3mul M3(X3[2:0],P2[2:0],B3,P3[3:1]);                                                        
                                                     
    P3[0]=A[0];
-   4sub S4(P3,B,X4,B4);
+   Add_sub_rca_4 S4(P3,B,Z,Z,B4,V4,X4);
    not N4(Q[0],B4);
    4mul M4(X4,P3,B4,R);
                                                        
