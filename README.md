@@ -19,7 +19,7 @@ Additional:
 5) 3 bit majority function(Gate level description)
     
     It can identify if the number of 1's in the given 3 bit binary number are more or not.
-    https://www.edaplayground.com/x/pn49
+   
 6) 4 bit comparator(Data flow modeling)
     
     It can compare any two 4 bit binary numbers and decide the less than, greater than and equal comparisions between them.
