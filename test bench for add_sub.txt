@@ -1,0 +1,19 @@
+Test Bench for Add_sub_rca_4
+
+module t_Add_sub_rca_4;
+  wire V,c_out;
+  wire [3:0]sum;
+  reg [3:0]A,B;
+  reg c_in,M;
+  
+  Add_sub_rca_4 M(A,B,c_in,M,c_out,V,sum);
+  
+  initial begin 
+  A=4'b0000;B=4'b0000;c_in=1'b0;M=1'b0;
+  #50 A=4'b1111;B=4'b0011;c_in=1'b0;M=1'b1;
+  #50 A=4'b0001;B=4'b0111;c_in=1'b1;M=1'b0;
+  #50 A=4'b1011;B=4'b1011;c_in=1'b0;M=1'b0;
+  end
+  
+  initial #300 $finish;
+endmodule 
