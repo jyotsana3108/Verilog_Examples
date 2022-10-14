@@ -1,7 +1,8 @@
 //4 bit Adder & Subtractor Circuit 
 
 //Hierarchial modeling
-
+// M = 0  implies ADD
+// V detects overflow
 module Add_half(input a,b,output c_out,sum);
  xor G1(sum,a,b);
  and G2(c_out,a,b);
