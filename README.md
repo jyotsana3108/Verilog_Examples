@@ -21,7 +21,7 @@ Additional:
 
 5) 3 bit majority function(Gate level description)
     
-    It can identify if the number of 1's in the given 3 bit binary number are more or not.
+    It can identify if the number of 1's in the given 3 bit binary number are more or not compared to the number of 0's in it.
     
     https://www.edaplayground.com/x/pn49
     
